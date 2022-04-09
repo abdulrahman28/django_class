@@ -1,0 +1,14 @@
+The result = {{res}}
+<br><br>
+<a href="/">Click here to return to the homepage</a>
+
+
+messages.info(request,c)
+return redirect('index')
+
+from django.contrib import messages
+from django.shortcuts import render, redirect
+
+{% for message in messages %}
+The result is {{message}}
+{% endfor %}
