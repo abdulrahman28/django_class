@@ -20,11 +20,24 @@ def index(request):
 
 
 def sum(request):
- 
-    a = float(request.GET['a'])
-    b = float(request.GET['b'])
 
-    c = a + b
+    a = request.POST['first']
+    b = request.POST['second']
 
-    return render(request, 'sum.html',{'res':c})    
+    if a == '' or b == '':
+        context = {'res':'No Data Entered!!!'}
+        return render(request, 'sum.html', context)  
+
+    else:
+        a = float(a)
+        b = float(b)       
+        c = 'The result is ' + str(a + b)
+        context = {
+            'res':c
+            }
+        return render(request, 'sum.html', context)
+
+
+
+      
 
